@@ -1,0 +1,23 @@
+<form [formGroup]='transacaoForm' (ngSubmit)="setData()">
+  <mat-form-field appearance="outline">
+    <mat-label>Tipo de transação</mat-label>
+    <mat-select formControlName='tipo'>
+      <mat-option [value]="1">Venda</mat-option>
+      <mat-option [value]="2">Compra</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Nome da mercadoria</mat-label>
+    <input type="text" matInput formControlName='nomeMercadoria'>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Valor</mat-label>
+    <input mask="separator.2" [thousandSeparator]="'.'" [decimalMarker]="','" prefix="R$ " type="text"
+      [dropSpecialCharacters]="false" formControlName='valor' id="exampleInputPassword1" type='text' matInput
+      formControlName='valor'>
+  </mat-form-field>
+
+  <button  mat-raised-button color="primary" type="submit" [disabled]="!transacaoForm.valid">Adicionar transação</button>
+</form>
