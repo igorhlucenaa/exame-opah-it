@@ -64,12 +64,10 @@ export class TableComponent implements AfterViewInit {
       let concatArr = [];
       this.data.map((res) => {
         if (res.tipo === 1) {
-          let val = Number(res.valor.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, ""));
+          let val = res.valor;
           concatArr.push(val);
         } else if (res.tipo === 2) {
-          let val = -Math.abs(
-            Number(res.valor.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, ""))
-          );
+          let val = -Math.abs(res.valor);
           concatArr.push(val);
         }
       });

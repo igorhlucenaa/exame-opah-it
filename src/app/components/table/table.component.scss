@@ -18,3 +18,20 @@ th {
 .positive {
   color: rgb(45, 194, 52);
 }
+mat-label {
+  text-align: center;
+}
+
+.separator {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  .separator {
+    width: 100%;
+    display: inline-block;
+    border-top: 1px solid #ccc;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+}

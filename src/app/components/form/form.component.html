@@ -14,10 +14,11 @@
 
   <mat-form-field appearance="outline">
     <mat-label>Valor</mat-label>
-    <input mask="separator.2" [thousandSeparator]="'.'" [decimalMarker]="','" prefix="R$ " type="text"
-      [dropSpecialCharacters]="false" formControlName='valor' id="exampleInputPassword1" type='text' matInput
-      formControlName='valor'>
+    <!-- <input mask="separator.2" [thousandSeparator]="'.'" [decimalMarker]="','" prefix="R$ "
+      [dropSpecialCharacters]="true" id="exampleInputPassword1" type='text' matInput formControlName='valor'> -->
+    <input currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }" id="exampleInputPassword1"
+      type='text' matInput formControlName='valor'>
   </mat-form-field>
 
-  <button  mat-raised-button color="primary" type="submit" [disabled]="!transacaoForm.valid">Adicionar transação</button>
+  <button mat-raised-button color="primary" type="submit" [disabled]="!transacaoForm.valid">Adicionar transação</button>
 </form>
