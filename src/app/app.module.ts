@@ -10,17 +10,13 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { ReactiveFormsModule } from "@angular/forms";
 import { registerLocaleData } from "@angular/common";
 import ptBr from "@angular/common/locales/pt";
-import { NgxMaskModule, IConfig } from "ngx-mask";
 import {
   CurrencyMaskConfig,
   CurrencyMaskModule,
   CURRENCY_MASK_CONFIG,
 } from "ng2-currency-mask";
-export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
 registerLocaleData(ptBr);
-const maskConfig: Partial<IConfig> = {
-  validation: false,
-};
+
 export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
   align: "left",
   allowNegative: false,
@@ -39,7 +35,6 @@ export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
     BrowserAnimationsModule,
     MaterialModule,
     ReactiveFormsModule,
-    NgxMaskModule.forRoot(maskConfig),
     Ng2Webstorage,
     CurrencyMaskModule,
   ],
