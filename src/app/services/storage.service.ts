@@ -16,7 +16,6 @@ export class StorageService {
     arr.push(obj);
     this.getData().subscribe((res: []) => {
       if (res !== null) {
-        console.log(res);
         res.map((res) => {
           arr.push(res);
         });

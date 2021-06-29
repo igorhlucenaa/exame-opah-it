@@ -30,7 +30,6 @@ export class TableComponent implements AfterViewInit {
       this.emitEvent.subsVar =
         this.emitEvent.invokeFirstComponentFunction.subscribe(
           (name: string) => {
-            console.log(name);
             this.getData();
           }
         );
@@ -40,7 +39,6 @@ export class TableComponent implements AfterViewInit {
   getData() {
     this.storage.getData().subscribe((res) => {
       this.data = res;
-      console.log(this.data);
       if (res !== null) {
         this.sum();
         this.dataSource = new MatTableDataSource(this.data);
@@ -75,7 +73,6 @@ export class TableComponent implements AfterViewInit {
       this.sumResult = concatArr.reduce((total, currentElement) => {
         return total + currentElement;
       });
-      console.log(this.sumResult);
     }
   }
 }

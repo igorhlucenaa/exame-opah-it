@@ -23,9 +23,8 @@ export class FormComponent implements AfterViewInit {
   ngAfterViewInit() {}
 
   setData() {
-    this.storage.setData(this.transacaoForm.value).subscribe((res) => {
-      this.storage.getData().subscribe((res) => console.log(res));
-      this.emitEvent.callFunction();
+    this.storage.setData(this.transacaoForm.value).subscribe(() => {
+      this.storage.getData().subscribe(() => this.emitEvent.callFunction());
     });
   }
 }
