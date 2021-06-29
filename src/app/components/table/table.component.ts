@@ -60,21 +60,24 @@ export class TableComponent implements AfterViewInit {
   }
 
   sum() {
-    let concatArr = [];
-    this.data.map((res) => {
-      if (res.tipo === 1) {
-        let val = Number(res.valor.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, ""));
-        concatArr.push(val);
-      } else if (res.tipo === 2) {
-        let val = -Math.abs(
-          Number(res.valor.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, ""))
-        );
-        concatArr.push(val);
-      }
-    });
+    if (this.data !== null) {
+      let concatArr = [];
+      this.data.map((res) => {
+        if (res.tipo === 1) {
+          let val = Number(res.valor.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, ""));
+          concatArr.push(val);
+        } else if (res.tipo === 2) {
+          let val = -Math.abs(
+            Number(res.valor.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, ""))
+          );
+          concatArr.push(val);
+        }
+      });
 
-    this.sumResult = concatArr.reduce((total, currentElement) => {
-      return total + currentElement;
-    });
+      this.sumResult = concatArr.reduce((total, currentElement) => {
+        return total + currentElement;
+      });
+      console.log(this.sumResult);
+    }
   }
 }
